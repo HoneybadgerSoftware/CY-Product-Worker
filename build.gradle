@@ -35,6 +35,8 @@ dependencies {
 	implementation 'org.liquibase.ext:liquibase-postgresql:4.23.0'
 	implementation 'org.apache.commons:commons-lang3'
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+	implementation 'org.springframework.cloud:spring-cloud-starter-feign:1.4.7.RELEASE'
+
 
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
