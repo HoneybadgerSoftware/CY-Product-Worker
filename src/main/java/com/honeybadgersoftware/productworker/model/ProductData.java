@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 @Data
 public class ProductData {
 
-    private Long id;
     private String name;
     private String manufacturer;
     private String description;

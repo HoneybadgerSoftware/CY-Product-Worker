@@ -5,8 +5,6 @@ import com.honeybadgersoftware.productworker.model.SimplifiedProductData;
 import com.honeybadgersoftware.productworker.utils.OneToOneFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class ProductDataToSimplifiedProductFactory implements OneToOneFactory<ProductData, SimplifiedProductData> {
 

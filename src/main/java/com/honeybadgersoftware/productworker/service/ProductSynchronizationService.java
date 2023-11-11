@@ -1,10 +1,8 @@
 package com.honeybadgersoftware.productworker.service;
 
-import com.honeybadgersoftware.productworker.model.ProductData;
-
-import java.util.List;
+import com.honeybadgersoftware.productworker.model.SynchronizeProductsRequest;
 
 public interface ProductSynchronizationService {
 
-    void synchronizeProducts(List<ProductData> product);
+    void synchronizeProducts(SynchronizeProductsRequest products);
 }

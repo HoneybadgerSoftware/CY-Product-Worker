@@ -1,9 +1,9 @@
 package com.honeybadgersoftware.productworker.api.productservice.client;
 
-import com.honeybadgersoftware.productworker.api.productservice.model.ProductExistenceResponse;
-import com.honeybadgersoftware.productworker.api.productservice.model.CheckProductsExistenceRequest;
-import com.honeybadgersoftware.productworker.api.productservice.model.UpdateNewProductsRequest;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import com.honeybadgersoftware.productworker.api.productservice.model.request.CheckProductsExistenceRequest;
+import com.honeybadgersoftware.productworker.api.productservice.model.response.ProductExistenceResponse;
+import com.honeybadgersoftware.productworker.api.productservice.model.request.UpdateNewProductsRequest;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,6 +18,6 @@ public interface ProductServiceApi {
 
     @PutMapping("/synchronize/newProducts")
     ResponseEntity<Void> updateNewProducts(
-            @RequestBody CheckProductsExistenceRequest checkProductsExistenceRequest);
+            @RequestBody UpdateNewProductsRequest checkProductsExistenceRequest);
 
 }

@@ -1,4 +1,4 @@
-package com.honeybadgersoftware.productworker.api.productservice.model;
+package com.honeybadgersoftware.productworker.api.productservice.model.request;
 
 import com.honeybadgersoftware.productworker.model.SimplifiedProductData;
 import lombok.AllArgsConstructor;

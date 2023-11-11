@@ -1,4 +1,4 @@
-package com.honeybadgersoftware.productworker.model;
+package com.honeybadgersoftware.productworker.api.productservice.model.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.honeybadgersoftware.productworker.api.productservice.model;
+package com.honeybadgersoftware.productworker.api.productservice.model.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Data
 @Builder
 @AllArgsConstructor
-public class NewProductData {
+public class NewProductUpdateData {
 
     private Long id;
     private BigDecimal averagePrice;
