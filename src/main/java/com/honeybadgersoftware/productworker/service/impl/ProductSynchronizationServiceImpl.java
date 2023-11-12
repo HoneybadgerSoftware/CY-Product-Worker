@@ -4,14 +4,14 @@ import com.honeybadgersoftware.productworker.api.availabilityService.client.Avai
 import com.honeybadgersoftware.productworker.api.availabilityService.model.UpdateAvailabilityData;
 import com.honeybadgersoftware.productworker.api.availabilityService.model.UpdateAvailabilityRequest;
 import com.honeybadgersoftware.productworker.api.productservice.client.ProductServiceApi;
-import com.honeybadgersoftware.productworker.api.productservice.model.request.CheckProductsExistenceRequest;
 import com.honeybadgersoftware.productworker.api.productservice.model.data.NewProductUpdateData;
-import com.honeybadgersoftware.productworker.api.productservice.model.response.ProductExistenceResponse;
-import com.honeybadgersoftware.productworker.api.productservice.model.request.UpdateNewProductsRequest;
-import com.honeybadgersoftware.productworker.factory.context.FactoryContext;
-import com.honeybadgersoftware.productworker.factory.ProductDataToSimplifiedProductFactory;
-import com.honeybadgersoftware.productworker.model.ProductData;
 import com.honeybadgersoftware.productworker.api.productservice.model.data.ProductExistenceData;
+import com.honeybadgersoftware.productworker.api.productservice.model.request.CheckProductsExistenceRequest;
+import com.honeybadgersoftware.productworker.api.productservice.model.request.UpdateNewProductsRequest;
+import com.honeybadgersoftware.productworker.api.productservice.model.response.ProductExistenceResponse;
+import com.honeybadgersoftware.productworker.factory.ProductDataToSimplifiedProductFactory;
+import com.honeybadgersoftware.productworker.factory.context.FactoryContext;
+import com.honeybadgersoftware.productworker.model.ProductData;
 import com.honeybadgersoftware.productworker.model.SimplifiedProductData;
 import com.honeybadgersoftware.productworker.model.SynchronizeProductsRequest;
 import com.honeybadgersoftware.productworker.service.ProductSynchronizationService;
@@ -43,12 +43,15 @@ public class ProductSynchronizationServiceImpl implements ProductSynchronization
 
         Pair<List<ProductExistenceData>, List<ProductExistenceData>> productsSortedByExistence =
                 sortProductsByExistence(
-                        requireNonNull(checkProductsExistence(simplifiedProductData).getProductExistenceData())
+                        requireNonNull(checkProductsExistence(simplifiedProductData).getData())
                 );
 
-        List<NewProductUpdateData> newProducts = extractNewProducts(productsData, productsSortedByExistence.getRight());
+        if (!productsSortedByExistence.getRight().isEmpty()) {
+            List<NewProductUpdateData> newProducts =
+                    createNewProductsUpdateData(productsData, productsSortedByExistence.getRight());
+            sendProductsCreationRequest(newProducts);
+        }
 
-        sendProductsCreationRequest(newProducts);
         sendProductAvailabilityRequest(createProductAvailabilityUpdateRequest(productsSortedByExistence, products));
     }
 
@@ -74,7 +77,7 @@ public class ProductSynchronizationServiceImpl implements ProductSynchronization
         productServiceApi.updateNewProducts(new UpdateNewProductsRequest(newProductUpdateDatum1s));
     }
 
-    private List<NewProductUpdateData> extractNewProducts(
+    private List<NewProductUpdateData> createNewProductsUpdateData(
             List<ProductData> productData,
             List<ProductExistenceData> productExistenceData) {
 

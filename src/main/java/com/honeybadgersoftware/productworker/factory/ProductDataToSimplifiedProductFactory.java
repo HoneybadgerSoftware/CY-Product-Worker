@@ -13,7 +13,6 @@ public class ProductDataToSimplifiedProductFactory implements OneToOneFactory<Pr
         return SimplifiedProductData.builder()
                 .productName(productData.getName())
                 .manufacturer(productData.getManufacturer())
-                .price(productData.getPrice())
                 .build();
     }
 

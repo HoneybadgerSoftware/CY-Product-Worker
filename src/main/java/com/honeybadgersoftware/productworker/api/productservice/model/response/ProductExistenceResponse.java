@@ -12,5 +12,5 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductExistenceResponse {
 
-    private List<ProductExistenceData> productExistenceData;
+    private List<ProductExistenceData> data;
 }
