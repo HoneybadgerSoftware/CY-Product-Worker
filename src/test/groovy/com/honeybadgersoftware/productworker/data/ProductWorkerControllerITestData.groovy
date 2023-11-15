@@ -4,7 +4,7 @@ class ProductWorkerControllerITestData {
 
     def static CHECK_PRODUCTS_REQUEST = '''
 {
-  "products": [
+  "data": [
     {
       "productName": "Fiji water 1lt",
       "manufacturer": "XYZ Corp"

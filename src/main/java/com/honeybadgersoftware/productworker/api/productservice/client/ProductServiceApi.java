@@ -1,8 +1,8 @@
 package com.honeybadgersoftware.productworker.api.productservice.client;
 
 import com.honeybadgersoftware.productworker.api.productservice.model.request.CheckProductsExistenceRequest;
-import com.honeybadgersoftware.productworker.api.productservice.model.response.ProductExistenceResponse;
 import com.honeybadgersoftware.productworker.api.productservice.model.request.UpdateNewProductsRequest;
+import com.honeybadgersoftware.productworker.api.productservice.model.response.ProductExistenceResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
