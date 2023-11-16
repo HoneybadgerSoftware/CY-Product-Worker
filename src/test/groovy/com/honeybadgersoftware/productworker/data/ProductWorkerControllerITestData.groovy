@@ -55,4 +55,26 @@ class ProductWorkerControllerITestData {
 }
 '''
 
+    def static AVAILABILITY_UPDATE_REQUEST = '''
+{
+  "shopId": 123,
+  "existingProductsData": [
+    {
+      "id": 12345678,
+      "price": 19.99
+    }
+  ],
+  "newProductsData": [
+    {
+      "id": 12345678,
+      "price": 19.99
+    },
+    {
+      "id": 87654321,
+      "price": 99.99
+    }
+  ]
+}
+'''
+
 }
