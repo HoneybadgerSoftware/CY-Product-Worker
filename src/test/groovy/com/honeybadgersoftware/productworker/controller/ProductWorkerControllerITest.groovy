@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*
 import static com.honeybadgersoftware.productworker.data.ProductWorkerControllerITestData.CHECK_PRODUCTS_RESPONSE
+import static com.honeybadgersoftware.productworker.data.ProductWorkerControllerITestData.NEW_PRODUCTS_REQUEST
 import static com.honeybadgersoftware.productworker.data.ProductWorkerControllerITestData.getCHECK_PRODUCTS_REQUEST
 
 class ProductWorkerControllerITest extends BaseIntegrationTest {
@@ -36,6 +37,13 @@ class ProductWorkerControllerITest extends BaseIntegrationTest {
         and:
         wireMock.stubFor(post(urlEqualTo("/products/synchronize/check"))
                 .withRequestBody(equalToJson(CHECK_PRODUCTS_REQUEST))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody(CHECK_PRODUCTS_RESPONSE)))
+        and:
+        wireMock.stubFor(put(urlEqualTo("/products/synchronize/newProducts"))
+                .withRequestBody(equalToJson(NEW_PRODUCTS_REQUEST))
                 .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader("Content-Type", "application/json")

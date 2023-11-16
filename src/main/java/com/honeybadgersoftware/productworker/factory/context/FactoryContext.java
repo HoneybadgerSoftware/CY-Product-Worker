@@ -1,7 +1,6 @@
 package com.honeybadgersoftware.productworker.factory.context;
 
 import com.honeybadgersoftware.productworker.utils.ManyToOneFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -11,7 +10,6 @@ public class FactoryContext {
 
     private final Map<Class<?>, ManyToOneFactory<?, ?, ?>> factories;
 
-    @Autowired
     public FactoryContext(Map<Class<?>, ManyToOneFactory<?, ?, ?>> factories) {
         this.factories = factories;
     }
@@ -21,3 +19,4 @@ public class FactoryContext {
         return (ManyToOneFactory<T, R, S>) factories.get(type);
     }
 }
+

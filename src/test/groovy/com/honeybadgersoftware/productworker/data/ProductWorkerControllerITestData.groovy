@@ -17,8 +17,7 @@ class ProductWorkerControllerITestData {
 }
 '''
 
-    def static CHECK_PRODUCTS_RESPONSE =
-            '''
+    def static CHECK_PRODUCTS_RESPONSE = '''
 {
   "data": [
     {
@@ -32,6 +31,25 @@ class ProductWorkerControllerITestData {
       "existsInDb": false,
       "name": "testProduct 1kg",
       "manufacturer": "ABC Inc"
+    }
+  ]
+}
+'''
+
+    def static NEW_PRODUCTS_REQUEST = '''
+{
+  "data" : [ 
+    {
+      "id" : 12345678,
+      "averagePrice" : 19.99,
+      "description" : "example description",
+      "url" : "http://example.com/test.jpg"
+    },
+    {
+      "id" : 87654321,
+      "averagePrice" : 99.99,
+      "description" : "test description",
+      "url" : "http://example.com/test2.jpg"
     }
   ]
 }
