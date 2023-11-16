@@ -4,32 +4,28 @@ import com.honeybadgersoftware.productworker.api.availabilityService.model.Updat
 import com.honeybadgersoftware.productworker.api.productservice.model.data.NewProductUpdateData;
 import com.honeybadgersoftware.productworker.factory.NewProductDataFactory;
 import com.honeybadgersoftware.productworker.factory.UpdateAvailabilityDataFactory;
-import com.honeybadgersoftware.productworker.model.ProductData;
-import com.honeybadgersoftware.productworker.api.productservice.model.data.ProductExistenceData;
 import com.honeybadgersoftware.productworker.utils.ManyToOneFactory;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 
 import java.util.Map;
 
 @Configuration
+@RequiredArgsConstructor
 public class FactoryConfiguration {
 
-    @Bean
-    public ManyToOneFactory<ProductData, ProductExistenceData, NewProductUpdateData> newProductDataFactory() {
-        return new NewProductDataFactory();
-    }
+    private final NewProductDataFactory newProductDataFactory;
+    private final UpdateAvailabilityDataFactory updateAvailabilityDataFactory;
 
     @Bean
-    public ManyToOneFactory<ProductData, ProductExistenceData, UpdateAvailabilityData> updateAvailabilityDataFactory() {
-        return new UpdateAvailabilityDataFactory();
-    }
-
-    @Bean
+    @DependsOn(value = {"newProductDataFactory", "updateAvailabilityDataFactory"})
     public Map<Class<?>, ManyToOneFactory<?, ?, ?>> factoryMap() {
+        System.out.println("Factory map");
         return Map.of(
-                NewProductDataFactory.class, newProductDataFactory(),
-                UpdateAvailabilityDataFactory.class, updateAvailabilityDataFactory()
-        );
+                NewProductUpdateData.class, newProductDataFactory,
+                UpdateAvailabilityData.class, updateAvailabilityDataFactory);
     }
 }

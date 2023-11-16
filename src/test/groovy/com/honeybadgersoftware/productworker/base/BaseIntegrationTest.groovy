@@ -1,5 +1,9 @@
 package com.honeybadgersoftware.productworker.base
 
+import com.github.tomakehurst.wiremock.WireMockServer
+import com.github.tomakehurst.wiremock.core.Options
+import com.github.tomakehurst.wiremock.junit.WireMockRule
+import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
@@ -21,9 +25,15 @@ abstract class BaseIntegrationTest extends Specification {
     @Autowired
     protected TestRestTemplate restTemplate
 
+    WireMockServer wireMock = new WireMockServer(8081)
 
     def setup() {
         addressToUseForTests = 'http://localhost:' + port
+        wireMock.start()
+    }
+
+    def cleanup(){
+        wireMock.stop()
     }
 
 }
