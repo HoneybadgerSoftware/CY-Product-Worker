@@ -4,8 +4,6 @@ import com.honeybadgersoftware.productworker.api.availabilityService.model.Updat
 import com.honeybadgersoftware.productworker.api.productservice.model.data.ProductExistenceData;
 import com.honeybadgersoftware.productworker.model.ProductData;
 import com.honeybadgersoftware.productworker.utils.ManyToOneFactory;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 

@@ -6,7 +6,6 @@ import com.honeybadgersoftware.productworker.factory.NewProductDataFactory;
 import com.honeybadgersoftware.productworker.factory.UpdateAvailabilityDataFactory;
 import com.honeybadgersoftware.productworker.utils.ManyToOneFactory;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;

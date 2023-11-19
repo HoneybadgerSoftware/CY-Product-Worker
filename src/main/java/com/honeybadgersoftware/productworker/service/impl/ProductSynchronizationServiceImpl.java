@@ -18,7 +18,6 @@ import com.honeybadgersoftware.productworker.service.ProductSynchronizationServi
 import com.honeybadgersoftware.productworker.utils.ManyToOneFactory;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.tuple.Pair;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
