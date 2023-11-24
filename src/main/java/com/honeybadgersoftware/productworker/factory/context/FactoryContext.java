@@ -1,6 +1,6 @@
 package com.honeybadgersoftware.productworker.factory.context;
 
-import com.honeybadgersoftware.productworker.utils.ManyToOneFactory;
+import com.honeybadgersoftware.productworker.utils.factory.ManyToOneFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
