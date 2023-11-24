@@ -4,7 +4,7 @@ import com.honeybadgersoftware.productworker.api.availabilityService.model.Updat
 import com.honeybadgersoftware.productworker.api.productservice.model.data.NewProductUpdateData;
 import com.honeybadgersoftware.productworker.factory.NewProductDataFactory;
 import com.honeybadgersoftware.productworker.factory.UpdateAvailabilityDataFactory;
-import com.honeybadgersoftware.productworker.utils.ManyToOneFactory;
+import com.honeybadgersoftware.productworker.utils.factory.ManyToOneFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

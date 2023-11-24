@@ -3,7 +3,7 @@ package com.honeybadgersoftware.productworker.factory;
 import com.honeybadgersoftware.productworker.api.availabilityService.model.UpdateAvailabilityData;
 import com.honeybadgersoftware.productworker.api.productservice.model.data.ProductExistenceData;
 import com.honeybadgersoftware.productworker.model.ProductData;
-import com.honeybadgersoftware.productworker.utils.ManyToOneFactory;
+import com.honeybadgersoftware.productworker.utils.factory.ManyToOneFactory;
 import org.springframework.stereotype.Component;
 
 

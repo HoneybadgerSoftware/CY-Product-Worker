@@ -1,4 +1,4 @@
-package com.honeybadgersoftware.productworker.utils;
+package com.honeybadgersoftware.productworker.utils.factory;
 
 import java.util.List;
 import java.util.stream.Collectors;
