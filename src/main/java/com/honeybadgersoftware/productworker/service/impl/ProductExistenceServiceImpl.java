@@ -37,8 +37,9 @@ public class ProductExistenceServiceImpl implements ProductExistenceService {
         productExistenceData.forEach(data -> {
             if (data.isExistsInDb()) {
                 existingProducts.add(data);
+            } else {
+                newProducts.add(data);
             }
-            newProducts.add(data);
         });
         return Pair.of(existingProducts, newProducts);
     }
